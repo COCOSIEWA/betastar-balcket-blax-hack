@@ -1,0 +1,19 @@
+//it will lag a bunch but is functionable
+
+let i = 1
+function updateAtoms() {
+    $.get('/api/user', function(data) {
+        userData = JSON.parse(data);
+        var atomsLocalized = userData.atoms.toLocaleString();
+        document.getElementById("#userAtoms").innerText = atomsLocalized;
+    });
+}
+
+function buyBox() {
+    var postData = 'crate=add';
+    $.post('/api/open/', postData, function(data) {});
+};
+while(i = 1){
+    buyBox();
+    updateAtoms()
+}
